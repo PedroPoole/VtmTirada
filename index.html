@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blueCenter {
+            color: blue;
+            text-align: center;
+
+        }
+
+        .greyBackground {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body onLoad="showStuff()">
+    <form>
+        <label for="fname">Dificultad</label><br>
+        <input type="text" id="dificultad" name="dificultad"><br>
+        <label for="fname">Ataque</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Extra Daño</label>
+        <input type="number" id="lname" name="lname">
+    </form>
+    <br>
+    <button class="blueCenter" onClick="showStuff()" id="checker">Submit</button>
+    <br>
+    <h3 id="exitos">Exitos: </h3>
+
+    
+
+
+    <script>
+        function showStuff() {
+            let ataque=document.getElementById('fname').value;
+            let aciertos=0;
+            let dificultad=document.getElementById('dificultad').value;
+            let heridas=0;
+                for(let i=ataque;i>0;i--){
+                    let a=Math.floor(Math.random() * 10)+1;
+                    console.log(a);
+                    if(a==10){
+                        aciertos=aciertos+2;
+                    }
+                    else if(a>=dificultad){
+                        aciertos++;
+                    }
+                    else if(a==1){
+                        aciertos--;
+                    }
+                }
+            console.log("aciertos: " + aciertos);
+            
+            if(aciertos<0){
+                document.getElementById('exitos').innerHTML="Pifia!";
+            }
+            else if (aciertos==0){
+                document.getElementById('exitos').innerHTML="Fallo!";
+            }
+            else{
+               
+                for (let j=+document.getElementById('lname').value+aciertos;j>0;j--){
+                    let b=Math.floor(Math.random() * 10)+1;
+                    console.log("b=" + b);
+                    if(b>=6){
+                        heridas++;
+                    }
+                    else if(b==1){
+                        heridas--;
+                    }
+                }
+                document.getElementById('exitos').innerHTML="Heridas: "+heridas;
+            }
+            
+            
+        }
+
+        
+
+    </script>
+    
+
+
+</body>
+
+</html>
