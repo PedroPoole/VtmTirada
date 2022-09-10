@@ -28,6 +28,8 @@
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Extra Daño</label><br>
         <input type="number" id="lname" name="lname">
+        <label for="secComb">Secundaria de combate?</label><br>
+        <input type="checkbox" id="secComb" name="secComb">
     </form>
     <br>
     <button class="blueCenter" onClick="showStuff()" id="checker">Submit</button>
@@ -46,7 +48,8 @@
                 for(let i=ataque;i>0;i--){
                     let a=Math.floor(Math.random() * 10)+1;
                     console.log(a);
-                    if(a==10){
+                    if(a==10&&document.getElementById('secComb').checked==true){
+                        alert("eh");
                         aciertos=aciertos+2;
                     }
                     else if(a>=dificultad){
