@@ -32,7 +32,8 @@
         <input type="checkbox" id="secComb" name="secComb">
     </form>
     <br>
-    <button class="blueCenter" onClick="showStuff()" id="checker">Submit</button>
+    <button class="blueCenter" onClick="showStuff()" id="checker">Calcular</button>
+    <button class="blueCenter" onClick="borrarHistorial()" id="checker">Borrar historial</button>
     <br>
     <h3 id="exitos">Exitos: </h3>
     <div id="previos"></div>
@@ -91,7 +92,9 @@
             
         }
 
-        
+        function borrarHistorial(){
+            document.getElementById("previos").innerHTML="";
+        }
 
     </script>
     
